@@ -1,8 +1,12 @@
 package com.capgemini.controller;
 import com.capgemini.entity.Product;
 import com.capgemini.service.ServiceClass;
+
 import com.capgemini.exceptions.IdNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,6 +37,12 @@ public class ControllerClass {
 		} else {
 			return new ResponseEntity<String>("Product created successfully", new HttpHeaders(), HttpStatus.OK);
 		}
+	}
+	@GetMapping("/GetAllProducts")
+	private ResponseEntity<List<Product>> getAllProduct() {
+		List<Product> emplist = serviceobj.getAllProduct();
+		return new ResponseEntity<List<Product>>(emplist, new HttpHeaders(), HttpStatus.OK);
+
 	}
 	@GetMapping("/SearchProduct/{id}")
 	private ResponseEntity<Product> getProduct(@PathVariable("id") int id) {

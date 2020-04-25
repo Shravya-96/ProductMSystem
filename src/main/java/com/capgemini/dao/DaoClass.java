@@ -1,10 +1,15 @@
 package com.capgemini.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.entity.Product;
+
 @Repository
 public class DaoClass implements DaoInterface {
 
@@ -22,6 +27,11 @@ public class DaoClass implements DaoInterface {
 	public Product getProductById(int productid) {
 		
 		return em.find(Product.class,productid);
+	}
+	public List<Product> getAllProduct() {
+		Query q=em.createQuery("select m from Product m");
+		List<Product> emplist=q.getResultList();
+		return emplist;
 	}
 	@Override
 	public Product UpdateProduct(Product p) {

@@ -1,10 +1,13 @@
 package com.capgemini.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.capgemini.entity.Product;
+
 import com.capgemini.dao.DaoClass;
 
 @Service
@@ -32,5 +35,8 @@ public Product delete(int id)
 public Product UpdateProduct(Product p) {
 	return dao.UpdateProduct(p);	
 }
-
+public List<Product> getAllProduct() 
+{
+return dao.getAllProduct();
+}
 }
