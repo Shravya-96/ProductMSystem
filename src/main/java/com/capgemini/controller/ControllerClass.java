@@ -38,7 +38,7 @@ public class ControllerClass {
 			return new ResponseEntity<String>("Product created successfully", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
-	@GetMapping("/GetAllProducts")
+	@GetMapping("/GetAllProduct")
 	private ResponseEntity<List<Product>> getAllProduct() {
 		List<Product> emplist = serviceobj.getAllProduct();
 		return new ResponseEntity<List<Product>>(emplist, new HttpHeaders(), HttpStatus.OK);
