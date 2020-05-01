@@ -28,7 +28,7 @@ public class ControllerClass {
 	@Autowired
 	ServiceClass serviceobj;
 
-	// Create Employee
+
 	@PostMapping("/ProductCreation")
 	public ResponseEntity<String> ProductCreation(@RequestBody Product p) {
 		Product e = serviceobj.ProductCreation(p);
