@@ -21,12 +21,6 @@ public Product ProductCreation(Product p) {
 	return dao.ProductCreation(p);
 }
 
-public Product getProductById(int productId) 
-{
-return dao.getProductById(productId);
-}
-
-
 public Product delete(int id) 
 {
 	return dao.deleteById(id);

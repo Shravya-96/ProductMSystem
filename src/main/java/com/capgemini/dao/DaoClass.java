@@ -23,11 +23,7 @@ public class DaoClass implements DaoInterface {
 		return e;
 	}
 	
-	@Override
-	public Product getProductById(int productid) {
-		
-		return em.find(Product.class,productid);
-	}
+
 	public List<Product> getAllProduct() {
 		Query q=em.createQuery("select m from Product m");
 		List<Product> emplist=q.getResultList();

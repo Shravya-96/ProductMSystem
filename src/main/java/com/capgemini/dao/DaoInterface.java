@@ -14,7 +14,7 @@ public interface DaoInterface {
 	List<Product> getAllProduct();
 
 
-	Product getProductById(int productid);
+	
 
 	Product UpdateProduct(Product p);
 

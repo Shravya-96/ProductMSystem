@@ -44,15 +44,7 @@ public class ControllerClass {
 		return new ResponseEntity<List<Product>>(emplist, new HttpHeaders(), HttpStatus.OK);
 
 	}
-	@GetMapping("/SearchProduct/{id}")
-	private ResponseEntity<Product> getProduct(@PathVariable("id") int id) {
-		Product e = serviceobj.getProductById(id);
-		if (e == null) {
-			throw new IdNotFoundException("Id does not exist,so we couldn't fetch details");
-		} else {
-			return new ResponseEntity<Product>(e, new HttpHeaders(), HttpStatus.OK);
-		}
-	}
+	
 	@PutMapping("/UpdateProduct")
 	public ResponseEntity<String> UpdateProduct(@RequestBody Product p) {
 		Product e = serviceobj.UpdateProduct(p);
