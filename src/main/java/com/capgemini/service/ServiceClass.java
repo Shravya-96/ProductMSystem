@@ -17,8 +17,8 @@ public class ServiceClass
 @Autowired
 DaoClass dao;
 
-public Product ProductCreation(Product p) {
-	return dao.ProductCreation(p);
+public Product ProductCreation(Product prod) {
+	return dao.ProductCreation(prod);
 }
 
 public Product delete(int id) 
@@ -26,8 +26,8 @@ public Product delete(int id)
 	return dao.deleteById(id);
 }
 
-public Product UpdateProduct(Product p) {
-	return dao.UpdateProduct(p);	
+public Product UpdateProduct(Product prod) {
+	return dao.UpdateProduct(prod);	
 }
 public List<Product> getAllProduct() 
 {

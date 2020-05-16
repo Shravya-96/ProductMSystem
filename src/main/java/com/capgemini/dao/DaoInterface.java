@@ -16,7 +16,7 @@ public interface DaoInterface {
 
 	
 
-	Product UpdateProduct(Product p);
+	Product UpdateProduct(Product prod);
 
-	Product ProductCreation(Product p);
+	Product ProductCreation(Product prod);
 }

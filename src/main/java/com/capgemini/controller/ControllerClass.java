@@ -30,8 +30,8 @@ public class ControllerClass {
 
 //Adding product details to the product table
 	@PostMapping("/ProductCreation")
-	public ResponseEntity<String> ProductCreation(@RequestBody Product p) {
-		Product product = serviceobj.ProductCreation(p);
+	public ResponseEntity<String> ProductCreation(@RequestBody Product prod) {
+		Product product = serviceobj.ProductCreation(prod);
 		if (product == null) {
 			throw new IdNotFoundException("Enter Valid Id");
 		} else {
@@ -48,8 +48,8 @@ public class ControllerClass {
 	
 	//Updating the product details
 	@PutMapping("/UpdateProduct")
-	public ResponseEntity<String> UpdateProduct(@RequestBody Product p) {
-		Product product = serviceobj.UpdateProduct(p);
+	public ResponseEntity<String> UpdateProduct(@RequestBody Product prod) {
+		Product product = serviceobj.UpdateProduct(prod);
 		if (product == null) {
 			throw new IdNotFoundException("Update Operation Unsuccessful,Provided Id does not exist");
 		} else {
