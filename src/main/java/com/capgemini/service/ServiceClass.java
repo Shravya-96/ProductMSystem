@@ -17,17 +17,17 @@ public class ServiceClass
 @Autowired
 DaoClass dao;
 
-public Product ProductCreation(Product prod) {
-	return dao.ProductCreation(prod);
+public Product ProductCreation(Product addproduct) {
+	return dao.ProductCreation(addproduct);
 }
 
-public Product delete(int id) 
+public Product delete(int productId) 
 {
-	return dao.deleteById(id);
+	return dao.deleteById(productId);
 }
 
-public Product UpdateProduct(Product prod) {
-	return dao.UpdateProduct(prod);	
+public Product UpdateProduct(Product updateproduct) {
+	return dao.UpdateProduct(updateproduct);	
 }
 public List<Product> getAllProduct() 
 {

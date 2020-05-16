@@ -30,8 +30,8 @@ public class ControllerClass {
 
 //Adding product details to the product table
 	@PostMapping("/ProductCreation")
-	public ResponseEntity<String> ProductCreation(@RequestBody Product prod) {
-		Product product = serviceobj.ProductCreation(prod);
+	public ResponseEntity<String> ProductCreation(@RequestBody Product addproduct) {
+		Product product = serviceobj.ProductCreation(addproduct);
 		if (product == null) {
 			throw new IdNotFoundException("Enter Valid Id");
 		} else {
@@ -41,15 +41,15 @@ public class ControllerClass {
 	//Displays list of all products
 	@GetMapping("/GetAllProduct")
 	private ResponseEntity<List<Product>> getAllProduct() {
-		List<Product> list = serviceobj.getAllProduct();
+		List<Product> productlist = serviceobj.getAllProduct();
 
-		return new ResponseEntity<List<Product>>(list, new HttpHeaders(), HttpStatus.OK);
+		return new ResponseEntity<List<Product>>(productlist, new HttpHeaders(), HttpStatus.OK);
 	}
 	
 	//Updating the product details
 	@PutMapping("/UpdateProduct")
-	public ResponseEntity<String> UpdateProduct(@RequestBody Product prod) {
-		Product product = serviceobj.UpdateProduct(prod);
+	public ResponseEntity<String> UpdateProduct(@RequestBody Product updateproduct) {
+		Product product = serviceobj.UpdateProduct(updateproduct);
 		if (product == null) {
 			throw new IdNotFoundException("Update Operation Unsuccessful,Provided Id does not exist");
 		} else {
@@ -58,8 +58,8 @@ public class ControllerClass {
 	}
 	//Deleting the particular product from the list
 	@DeleteMapping("/DeleteProduct/{id}")
-	private ResponseEntity<String> delEmp(@PathVariable("id") int id) {
-		Product product = serviceobj.delete(id);
+	private ResponseEntity<String> delEmp(@PathVariable("id") int productId) {
+		Product product = serviceobj.delete(productId);
 		if (product == null) {
 			throw new IdNotFoundException("Delete Operation Unsuccessful,Provided Id does not exist");
 		} else {
@@ -69,8 +69,8 @@ public class ControllerClass {
 
 	@ExceptionHandler(IdNotFoundException.class)
 	
-	public ResponseEntity<String> userNotFound(IdNotFoundException e) {
-		return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+	public ResponseEntity<String> userNotFound(IdNotFoundException exception) {
+		return new ResponseEntity<String>(exception.getMessage(), HttpStatus.NOT_FOUND);
 	}
 
 

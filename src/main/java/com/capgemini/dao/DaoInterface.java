@@ -9,14 +9,14 @@ import com.capgemini.entity.Product;
 
 public interface DaoInterface {
 
-	Product deleteById(int productid);
+	Product deleteById(int productId);
 	
 	List<Product> getAllProduct();
 
 
 	
 
-	Product UpdateProduct(Product prod);
+	Product UpdateProduct(Product updateproduct);
 
-	Product ProductCreation(Product prod);
+	Product ProductCreation(Product addproduct);
 }

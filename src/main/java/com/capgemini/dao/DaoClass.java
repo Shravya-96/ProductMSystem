@@ -23,9 +23,9 @@ public class DaoClass implements DaoInterface {
 	DaoClass dao;
 	
 	@Override
-	public Product ProductCreation(Product prod) {
+	public Product ProductCreation(Product addproduct) {
 
-		Product product=em.merge(prod);
+		Product product=em.merge(addproduct);
 		return product;
 	}
 	
@@ -36,13 +36,13 @@ public class DaoClass implements DaoInterface {
 		return productlist;
 	}
 	@Override
-	public Product UpdateProduct(Product prod) {
-		Product product=em.find(Product.class,prod.getProductId());
+	public Product UpdateProduct(Product updateproduct) {
+		Product product=em.find(Product.class,updateproduct.getProductId());
 		if(product!=null)
 		{
-			product.setProductName(prod.getProductName());
-			product.setProductBrand(prod.getProductBrand());
-			product.setProductPrice(prod.getProductPrice());
+			product.setProductName(updateproduct.getProductName());
+			product.setProductBrand(updateproduct.getProductBrand());
+			product.setProductPrice(updateproduct.getProductPrice());
 			
 		}
 		return product;
