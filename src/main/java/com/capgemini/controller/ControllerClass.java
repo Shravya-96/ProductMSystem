@@ -22,42 +22,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 @CrossOrigin("http://localhost:4200")
 public class ControllerClass {
 	@Autowired
 	ServiceClass serviceobj;
 
-
+//Adding product details to the product table
 	@PostMapping("/ProductCreation")
 	public ResponseEntity<String> ProductCreation(@RequestBody Product p) {
-		Product e = serviceobj.ProductCreation(p);
-		if (e == null) {
+		Product product = serviceobj.ProductCreation(p);
+		if (product == null) {
 			throw new IdNotFoundException("Enter Valid Id");
 		} else {
 			return new ResponseEntity<String>("Product created successfully", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
+	//Displays list of all products
 	@GetMapping("/GetAllProduct")
 	private ResponseEntity<List<Product>> getAllProduct() {
-		List<Product> emplist = serviceobj.getAllProduct();
-		return new ResponseEntity<List<Product>>(emplist, new HttpHeaders(), HttpStatus.OK);
+		List<Product> list = serviceobj.getAllProduct();
 
+		return new ResponseEntity<List<Product>>(list, new HttpHeaders(), HttpStatus.OK);
 	}
 	
+	//Updating the product details
 	@PutMapping("/UpdateProduct")
 	public ResponseEntity<String> UpdateProduct(@RequestBody Product p) {
-		Product e = serviceobj.UpdateProduct(p);
-		if (e == null) {
+		Product product = serviceobj.UpdateProduct(p);
+		if (product == null) {
 			throw new IdNotFoundException("Update Operation Unsuccessful,Provided Id does not exist");
 		} else {
 			return new ResponseEntity<String>("Product updated successfully", new HttpHeaders(), HttpStatus.OK);
 		}
 	}
+	//Deleting the particular product from the list
 	@DeleteMapping("/DeleteProduct/{id}")
 	private ResponseEntity<String> delEmp(@PathVariable("id") int id) {
-		Product e = serviceobj.delete(id);
-		if (e == null) {
+		Product product = serviceobj.delete(id);
+		if (product == null) {
 			throw new IdNotFoundException("Delete Operation Unsuccessful,Provided Id does not exist");
 		} else {
 			return new ResponseEntity<String>("Product deleted successfully", new HttpHeaders(), HttpStatus.OK);
@@ -65,6 +68,7 @@ public class ControllerClass {
 	}
 
 	@ExceptionHandler(IdNotFoundException.class)
+	
 	public ResponseEntity<String> userNotFound(IdNotFoundException e) {
 		return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 	}

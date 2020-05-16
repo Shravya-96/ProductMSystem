@@ -5,13 +5,13 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="Product")
+@Table(name="Productdata")
 public class Product {
 @Id
 private int productId;
 private String productName;
 private String productBrand;
-private Float productPrice;
+private int productPrice;
 public int getProductId() {
 	return productId;
 }
@@ -30,10 +30,10 @@ public String getProductBrand() {
 public void setProductBrand(String productBrand) {
 	this.productBrand = productBrand;
 }
-public Float getProductPrice() {
+public int getProductPrice() {
 	return productPrice;
 }
-public void setProductPrice(Float productPrice) {
+public void setProductPrice(int productPrice) {
 	this.productPrice = productPrice;
 }
 
