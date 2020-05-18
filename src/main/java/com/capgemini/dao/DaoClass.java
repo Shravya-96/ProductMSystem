@@ -18,25 +18,25 @@ import com.capgemini.entity.Product;
 public class DaoClass implements DaoInterface {
 
 	@PersistenceContext	
-	 EntityManager em;
+	 EntityManager entitymanager;
 	DaoClass dao;
 	
 	@Override
 	public Product ProductCreation(Product addproduct) {
 
-		Product product=em.merge(addproduct);
+		Product product=entitymanager.merge(addproduct);
 		return product;
 	}
 	
 @Override
 	public List<Product> getAllProduct() {
-		Query q=em.createQuery("select m from Product m");
+		Query q=entitymanager.createQuery("select m from Product m");
 		List<Product> productlist=q.getResultList();
 		return productlist;
 	}
 	@Override
 	public Product UpdateProduct(Product updateproduct) {
-		Product product=em.find(Product.class,updateproduct.getProductId());
+		Product product=entitymanager.find(Product.class,updateproduct.getProductId());
 		if(product!=null)
 		{
 			product.setProductName(updateproduct.getProductName());
@@ -49,9 +49,9 @@ public class DaoClass implements DaoInterface {
 	}
 	@Override	
 	public Product deleteById(int productId) {
-		Product product=em.find(Product.class,productId);
+		Product product=entitymanager.find(Product.class,productId);
 		if(product!=null)
-			{em.remove(product);
+			{entitymanager.remove(product);
 			}
         return product;
 	}

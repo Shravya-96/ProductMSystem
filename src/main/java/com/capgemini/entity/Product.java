@@ -12,6 +12,7 @@ private int productId;
 private String productName;
 private String productBrand;
 private int productPrice;
+private String retailerId;
 public int getProductId() {
 	return productId;
 }
@@ -35,6 +36,12 @@ public int getProductPrice() {
 }
 public void setProductPrice(int productPrice) {
 	this.productPrice = productPrice;
+}
+public String getRetailerId() {
+	return retailerId;
+}
+public void setRetailerId(String retailerId) {
+	this.retailerId = retailerId;
 }
 
 }
