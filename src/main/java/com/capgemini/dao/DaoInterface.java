@@ -14,8 +14,6 @@ public interface DaoInterface {
 	List<Product> getAllProduct();
 
 
-	
-
 	Product UpdateProduct(Product updateproduct);
 
 	Product ProductCreation(Product addproduct);

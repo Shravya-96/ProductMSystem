@@ -51,7 +51,7 @@ public class ControllerClass {
 	public ResponseEntity<String> UpdateProduct(@RequestBody Product updateproduct) {
 		Product product = serviceobj.UpdateProduct(updateproduct);
 		if (product == null) {
-			throw new IdNotFoundException("Update Operation Unsuccessful,Provided Id does not exist");
+			throw new IdNotFoundException("Update Operation Unsuccessful");
 		} else {
 			return new ResponseEntity<String>("Product updated successfully", new HttpHeaders(), HttpStatus.OK);
 		}
